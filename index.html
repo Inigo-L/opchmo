@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- <base href="/oai_private/"> -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="initial-scale=1">
+  <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+
+  <!-- Leaflet dependancies -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin="" />
+  <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js" integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew==" crossorigin=""></script>
+  <!-- End of leaflet dependancies -->
+
+  <!-- Poppins font to match squarespace -->
+  <!-- <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  <link href="https://static1.squarespace.com/static/sitecss/5e7202aa1c3475792fe7096c/45/5c5a519771c10ba3470d8101/5e7202ab1c3475792fe70986/764-05142015/1586101964766/site.css" rel="stylesheet"> -->
+
+  <!-- add jquery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+  <!-- css starting point -->
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.1/build/pure-min.css">
+  <!-- custom css -->
+  <link rel="stylesheet" href="./src/styles.css">
+
+
+  <title>Open Charities Movement</title>
+</head>
+
+<body>
+  <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
+  <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
+  <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+  <!-- <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-analytics.js"></script> -->
+  <!-- Add Firebase products that you want to use -->
+  <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-firestore.js"></script>
+
+  <div class="body">
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="heading">
+      <h1>Open Data Demo</h1>
+    </div>
+    
+    <div id="map"></div>
+
+    <script src="./src/firebase.js"></script>
+    <script src="./src/map.js"></script>
+
+  </div>
+
+
+  </div>
+</body>
+
+</html>
