@@ -1,0 +1,91 @@
+<!-- Just a lil' demo form - should handle storing inputs from the form in the firestore database - scripts are included, so can drop right into index.html all in one, or move anything between the script tags to a separate src file. Havent tested tho -->
+
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+    <body>
+        <div id="form_wrapper">
+        <form id="form1">
+            <!-- change name="" to whatever you would like each data item to be named in the database-->
+            <!-- change text immediately before "/label" to whatever you would like the input to be labeled on the form to the user-->
+          <label for="userId">User ID:</label>
+          <input type="text" id="userId" name="userId" value=""><br><br>
+          <label for="field1">1st input:</label>
+          <input type="text" id="field1" name="field1" value=""><br><br>
+          <label for="field2">2nd input:</label>
+          <input type="text" id="field2" name="field2" value=""><br><br>
+          <label for="field3">3rd input:</label>
+          <input type="text" id="field3" name="field3" value=""><br><br>
+          <label for="field4">4th input:</label>
+          <input type="text" id="field4" name="field4" value=""><br><br>
+          <input type="button" onclick="formHandler()" value="Submit">
+        </form> 
+        </div>
+        
+        <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-firestore.js"></script>
+        
+        <script>
+            
+            // Firebase configuration
+            var firebaseConfig = {
+              apiKey: "AIzaSyAwIaQ8PdDVuoOwKULFLwrgb945OndQr80",
+              authDomain: "opchmo.firebaseapp.com",
+              databaseURL: "https://opchmo.firebaseio.com",
+              projectId: "opchmo",
+              storageBucket: "opchmo.appspot.com",
+              messagingSenderId: "78441034334",
+              appId: "1:78441034334:web:b3d881fedacbbc7a6cfacf"
+            };
+            
+            // Initialize Firebase
+            firebase.initializeApp(firebaseConfig);
+            //firebase.firestore.setLogLevel("debug");
+
+            var auth = firebase.auth();
+            var db = firebase.firestore();
+            
+            
+            function formHandler(){
+            //get input names from form
+            
+            var field1 = document.getElementById("field1").name;
+            var field2 = document.getElementById("field2").name;
+            var field3 = document.getElementById("field3").name;
+            var field4 = document.getElementById("field4").name;
+
+
+            //get inputs from form
+            
+            var userId = document.getElementById("userId").value;
+            var input1 = document.getElementById("field1").value;
+            var input2 = document.getElementById("field2").value;
+            var input3 = document.getElementById("field3").value;
+            var input4 = document.getElementById("field4").value;
+            
+            
+            //write inputs to database
+
+            function writeUserData(userId, input1, input2, input3, input4) {
+              db.collection("demo").doc(userId).set({
+                "userId": userId,  
+                field1: input1,
+                field2: input2,
+                field3: input3,
+                field4: input4,
+              }/*, {merge: true}*/ )  //uncomment out this if you don't want to overwrite -e.g. if the same user is uploading additional info. Have left out for now so all data has same shape
+                then(function() {
+                  //write whatever you want to handle success here
+                        console.log("data successfully uploaded!");
+                    })
+                    .catch(function(error) {
+                  //write whatever you want on error here
+                        console.error("Error uploading data: ", error);
+                    });
+            }
+            }
+
+        </script>
+    </body>
+</html>
