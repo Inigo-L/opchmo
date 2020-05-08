@@ -37,15 +37,35 @@
   <!-- Add Firebase products that you want to use -->
   <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-firestore.js"></script>
+ 
 
   <div class="body">
+    
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="heading">
       <h1>Open Data Demo</h1>
     </div>
+    <div id="form_wrapper">
+        <form id="form1">
+            <! change name="" to whatever you would like each data item to be named in the database/>
+            <! change text immediately before "/label" to whatever you would like the input to be labeled on the form to the user/>
+          <label for="userId">User ID:</label>
+          <input type="text" id="userId" name="userId" value=""><br><br>
+          <label for="field1">1st input:</label>
+          <input type="text" id="field1" name="field1" value=""><br><br>
+          <label for="field2">2nd input:</label>
+          <input type="text" id="field2" name="field2" value=""><br><br>
+          <label for="field3">3rd input:</label>
+          <input type="text" id="field3" name="field3" value=""><br><br>
+          <label for="field4">4th input:</label>
+          <input type="text" id="field4" name="field4" value=""><br><br>
+          <input type="button" onclick="formHandler()" value="Submit">
+        </form> 
+    </div>
     
     <div id="map"></div>
-
+    
+    <script src="./src/formHandler.js"></script>
     <script src="./src/firebase.js"></script>
     <script src="./src/map.js"></script>
 
